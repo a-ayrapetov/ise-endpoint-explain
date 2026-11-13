@@ -36,7 +36,7 @@ Credentials come from `ISE_USERNAME` / `ISE_PASSWORD` or a prompt and are never 
 ## Install and use
 
 ```bash
-pip install ise-endpoint-explain
+pip install git+https://github.com/a-ayrapetov/ise-endpoint-explain
 ise-explain aa:bb:cc:00:11:22 --mnt ise-mnt.example.com --ca-bundle corp-ca.pem
 ise-explain aabb.cc00.1122 --mnt 192.0.2.10 --insecure --seconds 432000    # lab only, 5-day window
 ise-explain AA-BB-CC-00-11-22 --offline saved/                            # no ISE access needed
