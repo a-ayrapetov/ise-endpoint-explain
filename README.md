@@ -22,6 +22,20 @@ Authentication history (3 records, newest first)
                               likely cause: ... Import the issuing CA into ISE trusted certificates for client auth.
 ```
 
+## When to run it
+
+```mermaid
+flowchart LR
+  R([Device cannot connect<br/>or gets the wrong access]) --> T[Run ise-explain<br/>on its MAC] --> D1{DP 1}
+  D1 -->|newest attempt failed| F[Read the ISE reason<br/>and its likely cause] --> X([Fix the cause])
+  D1 -->|no records| N[Check the port, the cable<br/>and RADIUS on the switch]
+  D1 -->|passed| P[Compare rule, profile<br/>and SGT with what<br/>was expected]
+
+  style R fill:#1f6feb,color:#fff,stroke:none
+  style D1 fill:#6e40c9,color:#fff,stroke:none
+  style X fill:#1a7f37,color:#fff,stroke:none
+```
+
 ## Safety
 
 Read-only. Two GET calls against the ISE Monitoring (MnT) REST API:
